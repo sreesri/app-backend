@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -22,6 +23,7 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public Item createItem(Item item) {
+        item.setId(UUID.randomUUID().toString());
         return itemRepository.save(item);
     }
 
